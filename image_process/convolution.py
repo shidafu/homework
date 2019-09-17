@@ -151,7 +151,7 @@ def cov_2d(img : '2D list or np.array',
         wy = np.ceil(float(wx-wf+1) / float(strides[1]))
         x_array_ex = img_array
     # do convolution
-    y_array= np.zeros((hy,wy))
+    y_array= np.zeros((int(hy),int(wy)))
     for j in range(len(y_array)):
         for i in range(len(y_array[0])):
             y_array[j,i] = operation(x_array_ex[j*strides[0]:j*strides[0]+hf,
