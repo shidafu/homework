@@ -4,9 +4,9 @@
 # In[3]:
 
 ### Import source
-from skimage import transform,io,data
+from skimage import transform,io
 import numpy as np
-lena_512 = io.imread('image\\lena512.bmp', as_grey=False)
+lena_512 = io.imread('image\\lena512.bmp', as_gray=False)
 lena_256 = transform.resize(lena_512, (256, 256))
 lena_noise = transform.resize(lena_512, (256, 256)).copy()
 for i in range(1024):    

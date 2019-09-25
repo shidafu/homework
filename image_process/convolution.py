@@ -55,10 +55,10 @@ def BLUR_GAUSSIAN(sigma:'Deviation of the gaussian envelope',
     sigma_x = sigma
     sigma_y = float(sigma) * gamma
     # Bounding box
-    xmax = np.max(np.abs(nstds * sigma_x * np.cos(theta)), np.abs(nstds * sigma_y * np.sin(theta)))
-    xmax = np.ceil(np.max(1, xmax))
-    ymax = np.max(np.abs(nstds * sigma_x * np.sin(theta)), np.abs(nstds * sigma_y * np.cos(theta)))
-    ymax = np.ceil(np.max(1, ymax))
+    xmax = np.max([np.abs(nstds * sigma_x * np.cos(theta)), np.abs(nstds * sigma_y * np.sin(theta))])
+    xmax = np.ceil(np.max([1, xmax]))
+    ymax = np.max([np.abs(nstds * sigma_x * np.sin(theta)), np.abs(nstds * sigma_y * np.cos(theta))])
+    ymax = np.ceil(np.max([1, ymax]))
     xmin = -xmax
     ymin = -ymax
     (y, x) = np.meshgrid(np.arange(ymin, ymax + 1), np.arange(xmin, xmax + 1))
@@ -80,10 +80,10 @@ def FEA_GABOR(theta:'Rotation of the sin/cos wave',
     sigma_x = sigma
     sigma_y = float(sigma) * gamma
     # Bounding box
-    xmax = np.max(np.abs(nstds * sigma_x * np.cos(0)), np.abs(nstds * sigma_y * np.sin(0.5*np.pi)))
-    xmax = np.ceil(np.max(1, xmax))
-    ymax = np.max(np.abs(nstds * sigma_x * np.sin(0.5 *np.pi)), np.abs(nstds * sigma_y * np.cos(0)))
-    ymax = np.ceil(np.max(1, ymax))
+    xmax = np.max([np.abs(float(nstds) * sigma_x * np.cos(0)), np.abs(float(nstds) * sigma_y * np.sin(0.5*np.pi))])
+    xmax = np.ceil(np.max([1, xmax]))
+    ymax = np.max([np.abs(nstds * sigma_x * np.sin(0.5 *np.pi)), np.abs(nstds * sigma_y * np.cos(0))])
+    ymax = np.ceil(np.max([1, ymax]))
     xmin = -xmax
     ymin = -ymax
     (y, x) = np.meshgrid(np.arange(ymin, ymax + 1), np.arange(xmin, xmax + 1))

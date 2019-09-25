@@ -4,8 +4,8 @@
 # In[1]:
 
 ### Import source
-from skimage import transform,io,data
-lena_512 = io.imread('image\\lena512.bmp', as_grey=True)
+from skimage import transform,io
+lena_512 = io.imread('image\\lena512.bmp', as_gray=True)
 lena_256 = transform.resize(lena_512, (256, 256))
 
 
